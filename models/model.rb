@@ -8,15 +8,13 @@ site = open("http://www.orangecounty.net/html/events.html")
 doc = Nokogiri::HTML(site)
 
 def get_events(doc)
+    i = 0
     events_array = Array.new
     doc.css('font').each do |event|
-        events_array.push(event.text)
-    end
-    # puts events_array.length
-    if events_array.include?("October")
-        puts events_array
-    else
-        puts "nope"
+        new_event = event.text.gsub(/\s+/, " ")
+        events_array.push(new_event)
+        i += 1
+        puts new_event if new_event.include?("October ")
     end
 end
 
