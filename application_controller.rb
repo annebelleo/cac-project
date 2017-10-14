@@ -6,7 +6,7 @@ require_relative 'models/model.rb'
 class MyApp < Sinatra::Base
 
   get '/' do
-    get_events
+    erb :index
   end
   
 end

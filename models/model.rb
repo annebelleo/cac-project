@@ -12,9 +12,11 @@ def get_events
     doc = Nokogiri::HTML(site)
     events_array = Array.new
     doc.css('p').each do |event|
-        new_event = event.text.gsub(/\s+/, " ")
+        new_event = event.text.gsub(/\s+/, " ").gsub("[", " ")
         events_array.push(new_event) if new_event.include?(today)
     end
-    return events_array
+    return events_array[0]
 end
 # also get links for events 'b > a'
+
+puts get_events
