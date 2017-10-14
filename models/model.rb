@@ -1,4 +1,5 @@
 # preview command - shotgun -p 8080 -o 0.0.0.0
+require 'net/http'
 require 'open-uri'
 require 'nokogiri'
 require 'date'
@@ -15,9 +16,4 @@ def get_events(doc, date)
     end
     puts events_array
 end
-
-get_events(doc, today)
-# puts today
-
-# puts today
 # also get links for events 'b > a'
