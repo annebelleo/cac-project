@@ -6,5 +6,3 @@ def get_links
     doc = Nokogiri::HTML(site)
     puts doc.css('b > a')
 end
-
-get_links
