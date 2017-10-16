@@ -7,8 +7,7 @@ require 'nokogiri'
 require 'date'
 
 def get_events
-    # today = Date.today.strftime("%B %d")
-    today = "October 15"
+    today = Date.today.strftime("%B %d")
     site = open("http://www.orangecounty.net/html/events.html")
     doc = Nokogiri::HTML(site)
     events_array = Array.new
