@@ -19,6 +19,7 @@ def get_events
     if events_array.empty? == false
         events_array.each do |event|
             new_event = event.split(today)[0]
+            return new_event
         end
         events_array.push(new_event)
     else
@@ -32,6 +33,8 @@ def get_date
     return date
 end
 
-# also get links for events 'b > a'
-
-puts get_events
+def get_links
+    site = open("http://www.orangecounty.net/html/events.html")
+    doc = Nokogiri::HTML(site)
+    doc.css('b > a')
+end
