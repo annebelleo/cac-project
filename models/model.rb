@@ -7,8 +7,8 @@ require 'nokogiri'
 require 'date'
 
 def get_first_event
-    # day = Date.today.strftime("%d")
-    day = "15"
+    day = Date.today.strftime("%d")
+    # day = "15"
     month = Date.today.strftime("%B")
     site = open("http://www.orangecounty.net/html/events.html")
     doc = Nokogiri::HTML(site)
@@ -19,18 +19,20 @@ def get_first_event
     end
     if events_array.empty? == false
         events_array.each do |event|
-            new_event = event.split(month)[0]
-            return new_event
+            return event.split(month)[0]
         end
-        events_array.push(new_event)
+        events_array.push(event)
+        return events_array[0]
     else
-        events_array.push("There are no events today.")
+        message = "There are no events today."
+        events_array.push(message)
+        return events_array[0]
     end
 end
 
 def get_second_event
-    # day = Date.today.strftime("%d")
-    day = "15"
+    day = Date.today.strftime("%d")
+    # day = "15"
     month = Date.today.strftime("%B")
     site = open("http://www.orangecounty.net/html/events.html")
     doc = Nokogiri::HTML(site)
@@ -40,23 +42,15 @@ def get_second_event
         events_array.push(event) if event.include?(month) && event.include?(day)
     end
     if events_array.empty? == false
-        new_event = " "
-        events_array.each do |event|
-            i = 0
-            if i == 1
-                puts "this works on the erb but not in the terminal"
-                new_event = event.split(" ")
-                return new_event
-            else
-                puts ""
-            end
-            i += 1
-        end
+        new_event = events_array[1].split(month)[0]
+        events_array.clear
         events_array.push(new_event)
+        return events_array[0]
     else
-        events_array.push("There are no events today.")
+        message = " "
+        events_array.push(message)
+        return events_array[0]
     end
-    return events_array[1]
 end
 
 def get_date
