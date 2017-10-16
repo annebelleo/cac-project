@@ -1,8 +1,9 @@
 body {
     background: #AB8ECD;
+    color: white;
+    text-align: center;
 }
 
 #header {
-    margin: 20px;
-    color: white;
+    margin: 5% 0 10% 0;
 }

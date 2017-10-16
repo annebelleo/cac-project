@@ -7,16 +7,31 @@ require 'nokogiri'
 require 'date'
 
 def get_events
-    today = Date.today.strftime("%B %d")
+    # today = Date.today.strftime("%B %d")
+    today = "October 15"
     site = open("http://www.orangecounty.net/html/events.html")
     doc = Nokogiri::HTML(site)
     events_array = Array.new
     doc.css('p').each do |event|
-        new_event = event.text.gsub(/\s+/, " ").gsub("[", " ")
-        events_array.push(new_event) if new_event.include?(today)
+        event = event.text.gsub(/\s+/, " ")
+        events_array.push(event) if event.include?(today)
+    end
+    if events_array.empty? == false
+        events_array.each do |event|
+            new_event = event.split(today)[0]
+        end
+        events_array.push(new_event)
+    else
+        events_array.push("There are no events today.")
     end
     return events_array[0]
 end
+
+def get_date
+    date = Date.today.strftime("%B %d, %Y")
+    return date
+end
+
 # also get links for events 'b > a'
 
 puts get_events
