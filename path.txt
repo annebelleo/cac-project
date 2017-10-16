@@ -1,6 +1,0 @@
-purple background
-container with today's date
--> using Date in model
-web scraping the events from orangecounty.net
-calendar fades in
--> js in public file or with css
