@@ -7,11 +7,13 @@ require 'nokogiri'
 require 'date'
 
 def get_first_event
+    
     #date variables
-    day = Date.today.strftime("%d")
-    month_name = Date.today.strftime("%B")
-    d = Date.today
-    last_month = d << 1
+    d = Time.now.getlocal("-07:00") 
+    day = d.strftime("%d")
+    month_name = d.strftime("%B")
+    today = Date.today
+    last_month = today << 1
     prev_month = last_month.strftime("%B")
     
     #parsing
@@ -44,10 +46,11 @@ end
 def get_second_event
     
     #date variables
-    day = Date.today.strftime("%d")
-    month_name = Date.today.strftime("%B")
-    d = Date.today
-    last_month = d << 1
+    d = Time.now.getlocal("-07:00") 
+    day = d.strftime("%d")
+    month_name = d.strftime("%B")
+    today = Date.today
+    last_month = today << 1
     prev_month = last_month.strftime("%B")
     
     #parsing
@@ -77,8 +80,8 @@ def get_second_event
 end
 
 def get_date
-    date = Date.today.strftime("%B %d, %Y")
-    return date
+    d = Time.now.getlocal("-07:00")
+    return d.strftime("%B %d, %Y")
 end
 
 def get_links

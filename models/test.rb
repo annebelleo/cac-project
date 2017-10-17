@@ -7,7 +7,4 @@ def get_links
     puts doc.css('b > a')
 end
 
-d = Date.today
-last_month = d << 1
 
-puts last_month.strftime("%B")
