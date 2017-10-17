@@ -1,6 +1,5 @@
 # preview command - shotgun -p 8080 -o 0.0.0.0
 require 'net/http'
-require 'json'
 require 'sinatra'
 require 'open-uri'
 require 'nokogiri'
@@ -11,6 +10,7 @@ def get_first_event
     #date variables
     d = Time.now.getlocal("-07:00") 
     day = d.strftime("%d")
+    # day = "17"
     month_name = d.strftime("%B")
     today = Date.today
     last_month = today << 1
@@ -48,6 +48,7 @@ def get_second_event
     #date variables
     d = Time.now.getlocal("-07:00") 
     day = d.strftime("%d")
+    # day = "17"
     month_name = d.strftime("%B")
     today = Date.today
     last_month = today << 1
