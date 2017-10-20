@@ -85,8 +85,4 @@ def get_date
     return d.strftime("%B %d, %Y")
 end
 
-def get_links
-    site = open("http://www.orangecounty.net/html/events.html")
-    doc = Nokogiri::HTML(site)
-    doc.css('b > a')
-end
+#CURRENT GOAL: generate random events occurring in a day
