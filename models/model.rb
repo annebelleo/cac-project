@@ -88,5 +88,3 @@ def get_date
     d = Time.now.getlocal("-07:00")
     return d.strftime("%B %d, %Y")
 end
-
-
