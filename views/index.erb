@@ -14,8 +14,10 @@
         <h3 align="center"><%=get_date%></h3>
       </div>
       <div id="content">
-        <a href=""><p><%=get_first_event%></p></a>
-        <a href=""><p><%=get_second_event%></p></a>
+        <% @data.each do |event| %> 
+        <a href=""><p><%=event%></p></a>
+      
+        <% end %>
       </div>
     </div>
   </body>
