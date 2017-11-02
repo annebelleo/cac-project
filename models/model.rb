@@ -10,7 +10,7 @@ def get_first_event
     #date variables
     d = Time.now.getlocal("-07:00") 
     day = d.strftime("%d")
-    # day = "17"
+    # day = "29"
     month_name = d.strftime("%B")
     today = Date.today
     last_month = today << 1
@@ -48,7 +48,7 @@ def get_second_event
     #date variables
     d = Time.now.getlocal("-07:00") 
     day = d.strftime("%d")
-    # day = "17"
+    # day = "31"
     month_name = d.strftime("%B")
     today = Date.today
     last_month = today << 1
